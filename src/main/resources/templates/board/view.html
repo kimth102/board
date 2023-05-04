@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:replace="/fragments/head.html :: fragment-head"></th:block>
+</head>
+<body>
+	<th:block th:replace="/fragments/header.html :: fragment-header"></th:block>
+	
+	<div class="container">
+		<div class="mb-3">
+			<label for="title" class="form-label">제목</label>
+			<input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" th:value="${board.title}" disabled>
+		</div>
+		<div class="mb-3">
+			<label for="contents" class="form-label">내용</label>
+			<textarea class="form-control" id="contents" name="contents" style="height: 150px" th:text="${board.contents}" disabled></textarea>
+		</div>
+		
+		<div class="float-end">
+			<a href="/" class="btn btn-secondary" role="button">목록으로</a>
+			<a th:href="'/delete/' + ${board.id}" class="btn btn-danger" role="button">삭제하기</a>
+			<a th:href="'/modify/' + ${board.id}" class="btn btn-primary" role="button">수정하기</a>
+		</div>
+	</div>
+	
+	<th:block th:replace="/fragments/footer.html :: fragment-footer"></th:block>
+</body>
+</html>

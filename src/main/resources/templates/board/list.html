@@ -20,12 +20,16 @@
 				<tbody>
 					<tr th:each="board : ${list}">
 						<td th:text="${board.id}"></td>
-						<td th:text="${board.title}"></td>
+						<td><a th:href="'/' + ${board.id}" th:text="${board.title}"></a></td>
 						<td th:text="${#dates.format(board.regDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 						<td th:text="${#dates.format(board.modDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 					</tr>
 				</tbody>
 			</table>
+		</div>
+		
+		<div class="float-end">
+			<a href="/write" class="btn btn-primary mb-3" role="button">글쓰기</a>
 		</div>
 	</div>
 	
